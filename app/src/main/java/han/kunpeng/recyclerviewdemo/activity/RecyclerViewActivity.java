@@ -1,6 +1,5 @@
-package han.kunpeng.recyclerviewdemo;
+package han.kunpeng.recyclerviewdemo.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,12 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import han.kunpeng.recyclerviewdemo.R;
 import han.kunpeng.recyclerviewdemo.adapter.BasicRecyclerViewAdapter;
+import timber.log.Timber;
 
 import static han.kunpeng.recyclerviewdemo.RecyclerViewConstant.VIEW_TYPE_ORIENTATION_HORIZONTAL;
 import static han.kunpeng.recyclerviewdemo.RecyclerViewConstant.VIEW_TYPE_ORIENTATION_VERTICAL;
 
-public class MainActivity extends Activity {
+public class RecyclerViewActivity extends BaseActivity {
     private List<String> mDataset;
     private RecyclerView mRecyclerViewVertical;
     private RecyclerView mRecyclerViewHorizontal;
@@ -25,15 +26,13 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Timber.d("[onCreate] BEGIN");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_recycler_view);
         initData();
         findView();
-//        initRefreshLayout();
         initRecyclerView();
-
-
+        Timber.d("[onCreate] END");
     }
 
     private void initData() {
