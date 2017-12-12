@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import han.kunpeng.recyclerviewdemo.R;
+import timber.log.Timber;
 
 import static han.kunpeng.recyclerviewdemo.RecyclerViewConstant.VIEW_TYPE_ORIENTATION_HORIZONTAL;
 import static han.kunpeng.recyclerviewdemo.RecyclerViewConstant.VIEW_TYPE_ORIENTATION_VERTICAL;
@@ -71,7 +72,7 @@ public class BasicRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
         if (holder instanceof BasicViewHolder) {
             ((BasicViewHolder) holder).textView.setText(mDataset.get(position));
         } else {
-            Log.d("HHHH", "onBindViewHolder - holder instanceof");
+            Timber.d("[onBindViewHolder] holder instanceof");
         }
     }
 

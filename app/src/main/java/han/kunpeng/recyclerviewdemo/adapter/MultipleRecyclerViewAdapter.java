@@ -2,7 +2,6 @@ package han.kunpeng.recyclerviewdemo.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import han.kunpeng.recyclerviewdemo.R;
+import timber.log.Timber;
 
 public class MultipleRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
     private List<String> mDataset;
@@ -93,7 +93,7 @@ public class MultipleRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         } else if (holder instanceof HorizontalViewHolder) {
             ((HorizontalViewHolder) holder).textView.setText(mDataset.get(position));
         } else {
-            Log.d("Bug", "onBindViewHolder - holder instanceof");
+            Timber.d("[onBindViewHolder] holder instanceof");
         }
     }
 
