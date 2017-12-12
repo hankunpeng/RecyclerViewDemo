@@ -12,6 +12,12 @@ import java.util.List;
 import han.kunpeng.recyclerviewdemo.R;
 import timber.log.Timber;
 
+/**
+ * MultipleRecyclerViewAdapter
+ *
+ * @author William Han
+ * @date 2017/12/12
+ */
 public class MultipleRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
     private List<String> mDataset;
     private Context mContext;

@@ -2,7 +2,6 @@ package han.kunpeng.recyclerviewdemo.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +12,15 @@ import java.util.List;
 import han.kunpeng.recyclerviewdemo.R;
 import timber.log.Timber;
 
-import static han.kunpeng.recyclerviewdemo.RecyclerViewConstant.VIEW_TYPE_ORIENTATION_HORIZONTAL;
-import static han.kunpeng.recyclerviewdemo.RecyclerViewConstant.VIEW_TYPE_ORIENTATION_VERTICAL;
+import static han.kunpeng.recyclerviewdemo.config.RecyclerViewConstant.VIEW_TYPE_ORIENTATION_HORIZONTAL;
+import static han.kunpeng.recyclerviewdemo.config.RecyclerViewConstant.VIEW_TYPE_ORIENTATION_VERTICAL;
 
+/**
+ * BasicRecyclerViewAdapter
+ *
+ * @author William Han
+ * @date 2017/12/12
+ */
 public class BasicRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
     private List<String> mDataset;
     private Context mContext;

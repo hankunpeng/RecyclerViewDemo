@@ -8,6 +8,12 @@ import butterknife.OnClick;
 import han.kunpeng.recyclerviewdemo.R;
 import timber.log.Timber;
 
+/**
+ * MainActivity
+ *
+ * @author William Han
+ * @date 2017/12/12
+ */
 public class MainActivity extends BaseActivity {
 
     @Override
@@ -19,10 +25,10 @@ public class MainActivity extends BaseActivity {
         Timber.d("[onCreate] END");
     }
 
-    @OnClick(R.id.button_recycler_view_basic)
+    @OnClick(R.id.button_fragment_recycler_basic)
     public void openRecyclerViewActivity() {
         Timber.d("[openRecyclerViewActivity] BEGIN");
-        openActivity(RecyclerViewActivity.class);
+        openActivity(BasicRecyclerActivity.class);
         Timber.d("[openRecyclerViewActivity] END");
     }
 

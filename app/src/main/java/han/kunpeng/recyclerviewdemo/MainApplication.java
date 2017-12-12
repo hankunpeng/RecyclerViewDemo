@@ -2,6 +2,7 @@ package han.kunpeng.recyclerviewdemo;
 
 import android.app.Application;
 
+import han.kunpeng.recyclerviewdemo.config.GlobalContext;
 import han.kunpeng.recyclerviewdemo.log.ThreadAwareDebugTree;
 import timber.log.Timber;
 
@@ -9,7 +10,7 @@ import timber.log.Timber;
  * MainApplication
  *
  * @author William Han
- * @date 2017/11/06
+ * @date 2017/12/12
  */
 public class MainApplication extends Application {
     @Override
@@ -23,5 +24,7 @@ public class MainApplication extends Application {
         } else {
             Timber.d("[onCreate] DEBUG false");
         }
+
+        GlobalContext.setContext(this);
     }
 }

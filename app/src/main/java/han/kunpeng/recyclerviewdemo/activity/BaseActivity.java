@@ -8,6 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import han.kunpeng.recyclerviewdemo.R;
 import timber.log.Timber;
 
+/**
+ * BaseActivity
+ *
+ * @author William Han
+ * @date 2017/12/12
+ */
 public class BaseActivity extends AppCompatActivity {
 
     @Override
