@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import han.kunpeng.recyclerviewdemo.R;
 import han.kunpeng.recyclerviewdemo.adapter.BasicRecyclerViewAdapter;
 import han.kunpeng.recyclerviewdemo.config.GlobalContext;
@@ -28,13 +30,13 @@ import static han.kunpeng.recyclerviewdemo.config.RecyclerViewConstant.VIEW_TYPE
  */
 public class BasicRecyclerFragment extends BaseFragment {
     private List<String> mDataset;
-    private RecyclerView mRecyclerViewVertical;
-    private RecyclerView mRecyclerViewHorizontal;
-    private RecyclerView.Adapter mRecyclerViewAdapter;
+    @BindView(R.id.recycler_view_vertical) RecyclerView mRecyclerViewVertical;
+    @BindView(R.id.recycler_view_horizontal) RecyclerView mRecyclerViewHorizontal;
     private RecyclerView.LayoutManager mRecyclerViewLayoutManagerVertical;
     private RecyclerView.LayoutManager mRecyclerViewLayoutManagerHorizontal;
     private LinearLayoutManager mLinearLayoutManagerVertical;
     private LinearLayoutManager mLinearLayoutManagerHorizontal;
+
 
     public static BasicRecyclerFragment newInstance() {
         return new BasicRecyclerFragment();
@@ -53,7 +55,7 @@ public class BasicRecyclerFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Timber.d("[onCreateView]");
         View view = inflater.inflate(R.layout.fragment_recycler_basic, container, false);
-        findView(view);
+        ButterKnife.bind(this, view);
         initRecyclerView(GlobalContext.getContext());
         return view;
     }
@@ -63,11 +65,6 @@ public class BasicRecyclerFragment extends BaseFragment {
         for (int i = 1; i <= 32; i++) {
             mDataset.add("福利 " + i);
         }
-    }
-
-    private void findView(View view) {
-        mRecyclerViewVertical = (RecyclerView) view.findViewById(R.id.recycler_view_vertical);
-        mRecyclerViewHorizontal = (RecyclerView) view.findViewById(R.id.recycler_view_horizontal);
     }
 
     private void initRecyclerView(Context context) {

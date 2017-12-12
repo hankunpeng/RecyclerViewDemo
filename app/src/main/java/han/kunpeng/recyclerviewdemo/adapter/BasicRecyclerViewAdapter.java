@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import han.kunpeng.recyclerviewdemo.R;
 import timber.log.Timber;
 
@@ -41,11 +43,11 @@ public class BasicRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
     // you provide access to all the views for a data item in a view holder
     public static class BasicViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        private TextView textView;
+        @BindView(R.id.text_view_info) TextView textView;
 
         public BasicViewHolder(View itemView) {
             super(itemView);
-            textView = (TextView) itemView.findViewById(R.id.text_view_info);
+            ButterKnife.bind(this, itemView);
         }
     }
 
