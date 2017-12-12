@@ -14,6 +14,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import han.kunpeng.recyclerviewdemo.R;
 import han.kunpeng.recyclerviewdemo.adapter.BasicRecyclerViewAdapter;
 import han.kunpeng.recyclerviewdemo.config.GlobalContext;
@@ -32,6 +33,7 @@ public class BasicRecyclerFragment extends BaseFragment {
     private List<String> mDataset;
     @BindView(R.id.recycler_view_vertical) RecyclerView mRecyclerViewVertical;
     @BindView(R.id.recycler_view_horizontal) RecyclerView mRecyclerViewHorizontal;
+    private Unbinder unbinder;
     private RecyclerView.LayoutManager mRecyclerViewLayoutManagerVertical;
     private RecyclerView.LayoutManager mRecyclerViewLayoutManagerHorizontal;
     private LinearLayoutManager mLinearLayoutManagerVertical;
@@ -55,9 +57,17 @@ public class BasicRecyclerFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Timber.d("[onCreateView]");
         View view = inflater.inflate(R.layout.fragment_recycler_basic, container, false);
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
         initRecyclerView(GlobalContext.getContext());
         return view;
+    }
+
+    @Override
+    public void onDestroy() {
+        Timber.d("[onDestroy] BEGIN");
+        super.onDestroy();
+        unbinder.unbind();
+        Timber.d("[onDestroy] END");
     }
 
     private void initData() {
