@@ -9,15 +9,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindArray;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import han.kunpeng.recyclerviewdemo.R;
 import han.kunpeng.recyclerviewdemo.adapter.BasicRecyclerViewAdapter;
 import han.kunpeng.recyclerviewdemo.config.GlobalContext;
+import han.kunpeng.recyclerviewdemo.utility.CSVParser;
 import timber.log.Timber;
 
 import static han.kunpeng.recyclerviewdemo.config.RecyclerViewConstant.VIEW_TYPE_ORIENTATION_HORIZONTAL;
@@ -71,10 +74,19 @@ public class BasicRecyclerFragment extends BaseFragment {
     }
 
     private void initData() {
+/*
         mDataset = new ArrayList<>();
         for (int i = 1; i <= 32; i++) {
             mDataset.add("福利 " + i);
         }
+*/
+
+        mDataset = new ArrayList<>();
+        CSVParser csvParser = new CSVParser("CountryFlag.csv");
+        for(String[] row : csvParser.parse()) {
+            mDataset.add(row[2]);
+        }
+
     }
 
     private void initRecyclerView(Context context) {
