@@ -21,29 +21,24 @@ import han.kunpeng.recyclerviewdemo.adapter.BasicRecyclerViewAdapter;
 import han.kunpeng.recyclerviewdemo.utility.GlobalContext;
 import timber.log.Timber;
 
-import static han.kunpeng.recyclerviewdemo.utility.RecyclerConstant.SCROLL_ORIENTATION_HORIZONTAL;
 import static han.kunpeng.recyclerviewdemo.utility.RecyclerConstant.SCROLL_ORIENTATION_VERTICAL;
 
 /**
- * BasicRecyclerFragment
+ * VerticalRecyclerFragment
  *
  * @author William Han
- * @date 2017/12/12
+ * @date 2017/12/18
  */
-public class BasicRecyclerFragment extends BaseFragment {
-    private List<String> mDataset;
+public class VerticalRecyclerFragment extends BaseFragment {
+    private List<String> dataset;
     @BindArray(R.array.countries) String[] countries;
-    @BindView(R.id.recycler_view_vertical) RecyclerView mRecyclerViewVertical;
-    @BindView(R.id.recycler_view_horizontal) RecyclerView mRecyclerViewHorizontal;
+    @BindView(R.id.recycler_view) RecyclerView recyclerView;
     private Unbinder unbinder;
-    private RecyclerView.LayoutManager mRecyclerViewLayoutManagerVertical;
-    private RecyclerView.LayoutManager mRecyclerViewLayoutManagerHorizontal;
-    private LinearLayoutManager mLinearLayoutManagerVertical;
-    private LinearLayoutManager mLinearLayoutManagerHorizontal;
+    private RecyclerView.LayoutManager layoutManager;
+    private LinearLayoutManager linearLayoutManager;
 
-
-    public static BasicRecyclerFragment newInstance() {
-        return new BasicRecyclerFragment();
+    public static VerticalRecyclerFragment newInstance() {
+        return new VerticalRecyclerFragment();
     }
 
     @Override
@@ -58,9 +53,8 @@ public class BasicRecyclerFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Timber.d("[onCreateView]");
-        View view = inflater.inflate(R.layout.fragment_recycler_basic, container, false);
+        View view = inflater.inflate(R.layout.fragment_recycler_vertical, container, false);
         unbinder = ButterKnife.bind(this, view);
-        initData();
         initRecyclerView(GlobalContext.getContext());
         return view;
     }
@@ -74,7 +68,7 @@ public class BasicRecyclerFragment extends BaseFragment {
     }
 
     private void initData() {
-        mDataset = new ArrayList<>();
+        dataset = new ArrayList<>();
 
 /*
         for (int i = 1; i <= 32; i++) {
@@ -90,30 +84,22 @@ public class BasicRecyclerFragment extends BaseFragment {
 */
 
         for (String country: countries) {
-            mDataset.add(country);
+            dataset.add(country);
         }
     }
 
     private void initRecyclerView(Context context) {
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
-        mRecyclerViewVertical.setHasFixedSize(true);
-        mRecyclerViewHorizontal.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager - VERTICAL
-        mLinearLayoutManagerVertical = new LinearLayoutManager(context);
-        mLinearLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);
-        mRecyclerViewLayoutManagerVertical = mLinearLayoutManagerVertical;
-        mRecyclerViewVertical.setLayoutManager(mRecyclerViewLayoutManagerVertical);
+        // use a linear layout manager
+        linearLayoutManager = new LinearLayoutManager(context);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        layoutManager = linearLayoutManager;
+        recyclerView.setLayoutManager(layoutManager);
 
-        // use a linear layout manager - HORIZONTAL
-        mLinearLayoutManagerHorizontal = new LinearLayoutManager(context);
-        mLinearLayoutManagerHorizontal.setOrientation(LinearLayoutManager.HORIZONTAL);
-        mRecyclerViewLayoutManagerHorizontal = mLinearLayoutManagerHorizontal;
-        mRecyclerViewHorizontal.setLayoutManager(mRecyclerViewLayoutManagerHorizontal);
-
-        // specify an adapter (see also next example)
-        mRecyclerViewVertical.setAdapter(new BasicRecyclerViewAdapter(mDataset, SCROLL_ORIENTATION_VERTICAL));
-        mRecyclerViewHorizontal.setAdapter(new BasicRecyclerViewAdapter(mDataset, SCROLL_ORIENTATION_HORIZONTAL));
+        initData();
+        recyclerView.setAdapter(new BasicRecyclerViewAdapter(dataset, SCROLL_ORIENTATION_VERTICAL));
     }
 }

@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.button_fragment_recycler_basic)
     public void openRecyclerViewActivity() {
         Timber.d("[openRecyclerViewActivity] BEGIN");
-        openActivity(BasicRecyclerActivity.class);
+        openActivity(RecyclerActivity.class);
         Timber.d("[openRecyclerViewActivity] END");
     }
 

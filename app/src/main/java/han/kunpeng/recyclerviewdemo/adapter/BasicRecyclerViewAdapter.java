@@ -14,8 +14,8 @@ import butterknife.ButterKnife;
 import han.kunpeng.recyclerviewdemo.R;
 import timber.log.Timber;
 
-import static han.kunpeng.recyclerviewdemo.config.RecyclerViewConstant.VIEW_TYPE_ORIENTATION_HORIZONTAL;
-import static han.kunpeng.recyclerviewdemo.config.RecyclerViewConstant.VIEW_TYPE_ORIENTATION_VERTICAL;
+import static han.kunpeng.recyclerviewdemo.utility.RecyclerConstant.SCROLL_ORIENTATION_HORIZONTAL;
+import static han.kunpeng.recyclerviewdemo.utility.RecyclerConstant.SCROLL_ORIENTATION_VERTICAL;
 
 /**
  * BasicRecyclerViewAdapter
@@ -57,9 +57,9 @@ public class BasicRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
         View view = null;
 
         // create a new view
-        if (VIEW_TYPE_ORIENTATION_VERTICAL == mOrientation) {
+        if (SCROLL_ORIENTATION_VERTICAL == mOrientation) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_vertical, parent, false);
-        } else if (VIEW_TYPE_ORIENTATION_HORIZONTAL == mOrientation) {
+        } else if (SCROLL_ORIENTATION_HORIZONTAL == mOrientation) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_horizontal, parent, false);
         } else {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);

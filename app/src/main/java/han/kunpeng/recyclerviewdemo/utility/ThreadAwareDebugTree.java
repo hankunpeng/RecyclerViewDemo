@@ -1,4 +1,4 @@
-package han.kunpeng.recyclerviewdemo.log;
+package han.kunpeng.recyclerviewdemo.utility;
 
 import timber.log.Timber;
 

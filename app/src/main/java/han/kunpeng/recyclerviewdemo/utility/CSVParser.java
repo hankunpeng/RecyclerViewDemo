@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import han.kunpeng.recyclerviewdemo.config.GlobalContext;
 import timber.log.Timber;
 
 /**

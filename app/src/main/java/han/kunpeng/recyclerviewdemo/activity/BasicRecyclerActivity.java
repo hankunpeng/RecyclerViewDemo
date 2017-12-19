@@ -21,7 +21,7 @@ public class BasicRecyclerActivity extends BaseActivity {
         setContentView(R.layout.activity_base);
         BasicRecyclerFragment basicRecyclerFragment = BasicRecyclerFragment.newInstance();
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, basicRecyclerFragment, "basicRecyclerFragment")
+                .add(R.id.view_pager, basicRecyclerFragment, "basicRecyclerFragment")
                 .commit();
         Timber.d("[onCreate] END");
     }

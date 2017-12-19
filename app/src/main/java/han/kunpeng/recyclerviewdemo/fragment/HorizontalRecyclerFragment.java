@@ -30,7 +30,7 @@ import static han.kunpeng.recyclerviewdemo.utility.RecyclerConstant.SCROLL_ORIEN
  * @author William Han
  * @date 2017/12/12
  */
-public class BasicRecyclerFragment extends BaseFragment {
+public class HorizontalRecyclerFragment extends BaseFragment {
     private List<String> mDataset;
     @BindArray(R.array.countries) String[] countries;
     @BindView(R.id.recycler_view_vertical) RecyclerView mRecyclerViewVertical;
@@ -42,8 +42,8 @@ public class BasicRecyclerFragment extends BaseFragment {
     private LinearLayoutManager mLinearLayoutManagerHorizontal;
 
 
-    public static BasicRecyclerFragment newInstance() {
-        return new BasicRecyclerFragment();
+    public static HorizontalRecyclerFragment newInstance() {
+        return new HorizontalRecyclerFragment();
     }
 
     @Override

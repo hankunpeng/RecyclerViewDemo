@@ -1,4 +1,4 @@
-package han.kunpeng.recyclerviewdemo.config;
+package han.kunpeng.recyclerviewdemo.utility;
 
 import android.content.Context;
 

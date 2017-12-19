@@ -2,8 +2,8 @@ package han.kunpeng.recyclerviewdemo;
 
 import android.app.Application;
 
-import han.kunpeng.recyclerviewdemo.config.GlobalContext;
-import han.kunpeng.recyclerviewdemo.log.ThreadAwareDebugTree;
+import han.kunpeng.recyclerviewdemo.utility.GlobalContext;
+import han.kunpeng.recyclerviewdemo.utility.ThreadAwareDebugTree;
 import timber.log.Timber;
 
 /**
