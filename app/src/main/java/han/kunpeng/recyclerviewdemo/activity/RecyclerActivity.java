@@ -1,7 +1,9 @@
 package han.kunpeng.recyclerviewdemo.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.widget.TableLayout;
 
 import com.viewpagerindicator.CirclePageIndicator;
 
@@ -25,6 +27,7 @@ public class RecyclerActivity extends BaseActivity implements RecyclerFragment.O
     private Unbinder unbinder;
     @BindView(R.id.view_pager) ViewPager viewPager;
     @BindView(R.id.view_pager_indicator) CirclePageIndicator viewPagerIndicator;
+    @BindView(R.id.tab_layout) TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class RecyclerActivity extends BaseActivity implements RecyclerFragment.O
         viewPager.setAdapter(new RecyclerPagerAdapter(getSupportFragmentManager()));
         viewPager.setOffscreenPageLimit(RecyclerConstant.RECYCLER_FRAGMENT_COUNT);
         viewPagerIndicator.setViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
         Timber.d("[onCreate] END");
     }
 

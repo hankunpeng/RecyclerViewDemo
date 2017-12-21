@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:tabTextAppearance="@style/TextAppearance.AppCompat.Title"
+        app:tabMaxWidth="0dp"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
+        android:layout_below="@id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -14,12 +25,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="32dp"
-        android:layout_gravity="bottom|center_horizontal"
         android:background="@android:color/transparent"
         app:radius="10dp"
-        app:fillColor="@android:color/holo_blue_light"
+        app:fillColor="@color/colorAccent"
         app:pageColor="#88ffbb33"
-        app:strokeColor="@android:color/holo_green_light"
+        app:strokeColor="@android:color/holo_green_dark"
         app:strokeWidth="0dp"/>
-</FrameLayout>
+</RelativeLayout>
